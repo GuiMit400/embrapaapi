@@ -106,7 +106,7 @@ def processamento(subopt, ano):
 @auth.login_required
 def get_comercializacao(ano):
     """
-    Retorna dados de processamento para o subtipo e ano especificado
+    Retorna dados de comercialização para o subtipo e ano especificado
     ---
     parameters:
       - name: subopt
@@ -140,7 +140,7 @@ def get_comercializacao(ano):
 @auth.login_required
 def get_importacao(subopt, ano):
     """
-    Retorna dados de processamento para o subtipo e ano especificado
+    Retorna dados de importação para o subtipo e ano especificado
     ---
     parameters:
       - name: subopt
@@ -174,7 +174,7 @@ def get_importacao(subopt, ano):
 @auth.login_required
 def get_exportacao(subopt, ano):
     """
-    Retorna dados de processamento para o subtipo e ano especificado
+    Retorna dados de exportação para o subtipo e ano especificado
     ---
     parameters:
       - name: subopt
