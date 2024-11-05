@@ -25,16 +25,18 @@ swagger = Swagger(app)
 
 
 def extrair_dados(url):
-    response = requests.get(url, timeout=10)
-    response.raise_for_status()
-    soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {"class": "tb_base tb_dados"})
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', {"class": "tb_base tb_dados"})
 
-    if table:
-        rows = table.find_all('tr')
-        data = [[cell.get_text(strip=True) for cell in row.find_all(['td', 'th'])] for row in rows]
-        return pd.DataFrame(data)
-    return None
+        if table:
+            rows = table.find_all('tr')
+            data = [[cell.get_text(strip=True) for cell in row.find_all(['td', 'th'])] for row in rows]
+            return pd.DataFrame(data)
+    except requests.Timeout:
+        return None
 
 
 @app.route('/producao/<int:ano>', methods=['GET'])
