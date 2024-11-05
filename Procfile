@@ -1,2 +1,1 @@
-web: python app.py
-git ini
+web: gunicorn app:app
