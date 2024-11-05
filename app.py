@@ -109,11 +109,6 @@ def get_comercializacao(ano):
     Retorna dados de comercialização para o subtipo e ano especificado
     ---
     parameters:
-      - name: subopt
-        in: path
-        type: integer
-        required: true
-        description: Subtipo de processamento
       - name: ano
         in: path
         type: integer
@@ -121,7 +116,7 @@ def get_comercializacao(ano):
         description: Ano dos dados de processamento
     responses:
       200:
-        description: Dados de processamento para o subtipo e ano especificado
+        description: Dados de comercialização para ano especificado
         schema:
           type: array
           items:
@@ -155,7 +150,7 @@ def get_importacao(subopt, ano):
         description: Ano dos dados de processamento
     responses:
       200:
-        description: Dados de processamento para o subtipo e ano especificado
+        description: Dados de importação para o subtipo e ano especificado
         schema:
           type: array
           items:
